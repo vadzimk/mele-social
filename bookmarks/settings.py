@@ -31,6 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    # local
+    'account',
+    # !important
+    # If you see the Logged out page of the Django administration site instead of your own Logged out page, check the INSTALLED_APPS setting of your project and make sure that django. contrib.admin comes a#er the account application. Both applications contain logged-out templates located in the same relative path. The Django template loader will go through the diﬀerent applications in the INSTALLED_APPS list and use the ﬁrst template it ﬁnds.
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # local
-    'account',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +127,9 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
