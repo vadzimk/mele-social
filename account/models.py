@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-
+# it is better to create custom user model form AbstractUser right away instead of this approach
 class Profile(models.Model):
     #  https://docs.djangoproject.com/en/4.1/topics/ auth/customizing/#django.contrib.auth.get_user_model.
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
